@@ -40,7 +40,10 @@ def launcher(token):
     if request.method == "POST":
         update = telegram.Update.de_json(request.get_json(force=True), bot)
         logging.info('I am still alive.')
-        handle_message(update.message)
+        try:
+            handle_message(update.message)
+        except:
+            logging.info('handle_message ERROR')
     return 'ok'
 
 
