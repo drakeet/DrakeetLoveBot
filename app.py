@@ -40,10 +40,7 @@ def launcher(token):
     if request.method == "POST":
         update = telegram.Update.de_json(request.get_json(force=True), bot)
         logging.info('I am still alive.')
-        if update.message == None:
-            logging.info('Warning: update.message == None')
-        else:
-            handle_message(update.message)
+        handle_message(update.message)
     return 'ok'
 
 
@@ -51,6 +48,9 @@ def handle_message(message):
 #   if message == None:
 #       return
     text = message.text
+    if text == None:
+        logging.info('Warning: message.text == None')
+        return
     if '/echo' in text:
         echo(message)
     elif '/milestone' in text:
