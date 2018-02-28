@@ -334,7 +334,7 @@ def help_for_alias(message):
         return bot.sendMessage(chat_id=message.chat.id,
                                reply_to_message_id=message.message_id,
                                text='请使用 /alias <key> <value> 表示用 key 替换 value')
-    finally:
+    except:
         logging.info('Reply message not found')
 
 def alias(message):
