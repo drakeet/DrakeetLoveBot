@@ -116,7 +116,7 @@ def parse_text_array(text):
 
 
 def get_nickname(user):
-    if user.first_name != None or user.last_name != None:
+    if user.first_name != None and user.last_name != None:
         return '%s %s' % (user.first_name, user.last_name)
     elif user.first_name == None:
         return user.last_name
